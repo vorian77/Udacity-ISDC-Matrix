@@ -92,13 +92,6 @@ class Matrix(object):
         # TODO - your code here
 
 
-    def dot_product(self, vector_one, vector_two):
-        result = 0
-        for i in range(len(vector_one)):
-            result += vector_one[i] * vector_two[i]
-        return result
-
-
     def T(self):
         """
         Returns a transposed copy of this Matrix.
@@ -196,6 +189,25 @@ class Matrix(object):
         Defines the behavior of * operator (matrix multiplication)
         """
         # TODO - your code here
+
+        # return new matrix that is this matrix * other
+
+        # init new matrix
+        new_matrix = zeroes(self.h, other.w)
+
+        # transpose other matrix to make calculations easier
+        other_transposed = other.T()
+
+        # calculate the dot product for each row, column
+        # in the new matrix
+        for i in range(len(new_matrix.g)):
+            for j in range(len(new_matrix.g[i])):
+                dot_product = 0
+                for v1, v2 in zip(self.g[i], other_transposed[j]):
+                    dot_product += v1 * v2
+                    new_matrix[i][j] = dot_product
+        return new_matrix
+
 
 
     def __rmul__(self, other):
