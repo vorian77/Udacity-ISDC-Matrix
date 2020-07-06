@@ -43,8 +43,33 @@ class Matrix(object):
             raise (NotImplementedError, "Calculating determinant not implemented for matrices largerer than 2x2.")
 
         # TODO - your code here
+
+        # process 1x1 matrix
         if self.h == 1:
-            determinant = 0
+            det = self.g[0][0]
+            # check determinant is valid
+            if det == 0:
+                raise ValueError('The matrix is not invertable.')
+
+            return det
+
+        # process 2x2 matrix
+        else:
+            # process 2 x 2 matrix
+
+            # set the 4 values of the matrix
+            a = self.g[0][0]
+            b = self.g[0][1]
+            c = self.g[1][0]
+            d = self.g[1][1]
+
+            # check - detriment is 0
+            det = a * d - b * c
+            if det == 0:
+                raise ValueError('The matrix is not invertable.')
+
+            return det
+
 
     def trace(self):
         """
@@ -110,9 +135,14 @@ class Matrix(object):
         """
         if self.h != other.h or self.w != other.w:
             raise (ValueError, "Matrices can only be added if the dimensions are the same")
-            #
+
         # TODO - your code here
-        #
+        new_matrix = zeroes(self.h, self.h)
+        for i in range(len(self.g)):
+            for j in range(len(self.g)):
+                new_matrix[i][j] = self.g[i][j] + other.g[i][j]
+        return new_matrix
+
 
     def __neg__(self):
         """
@@ -126,9 +156,14 @@ class Matrix(object):
           -1.0  -2.0
           -3.0  -4.0
         """
-        #
+
         # TODO - your code here
-        #
+        new_matrix = zeroes(self.h, self.h)
+        for i in range(len(self.g)):
+            for j in range(len(self.g)):
+                new_matrix[i][j] = -self.g[i][j]
+        return new_matrix
+
 
     def __sub__(self, other):
         """
@@ -163,7 +198,3 @@ class Matrix(object):
             #
             # TODO - your code here
             #
-
-
-I = identity(3)
-print(I)
