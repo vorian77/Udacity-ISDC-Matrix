@@ -52,7 +52,8 @@ This is coursework for the [Udacity - Introduction to Self-Driving Cars Nano Deg
 
 Unit: Working With Matrices
 
-Developed from a template supplied by Udacity. I supplied all code that appears in "TODO" sections.
+Developed from a template supplied by Udacity. I supplied all code in matrix.py that appears in "TODO" sections. 
+Udacity supplied the content of the matrix-test.py file.
 
 ## License
 
