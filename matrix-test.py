@@ -97,6 +97,7 @@ def test():
     assert equal(-I2, I2_neg), "Error in your __neg__ function"
     assert equal(I2 + I2_neg, zero), "Error in your __add__ function"
     assert equal(m1.T(), m1_transposed), "Error in your T function (transpose)"
+    assert m1.dot_product([1,2,3], [4,5,6]) == 32
 
     # assert equal(m1 * m2, m1_x_m2), "Error in your __mul__ function"
     # assert equal(m2 * m1, m2_x_m1), "Error in your __mul__ function"

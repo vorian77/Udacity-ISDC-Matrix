@@ -91,6 +91,14 @@ class Matrix(object):
 
         # TODO - your code here
 
+
+    def dot_product(self, vector_one, vector_two):
+        result = 0
+        for i in range(len(vector_one)):
+            result += vector_one[i] * vector_two[i]
+        return result
+
+
     def T(self):
         """
         Returns a transposed copy of this Matrix.
