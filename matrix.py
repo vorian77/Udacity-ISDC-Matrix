@@ -97,6 +97,17 @@ class Matrix(object):
         """
         # TODO - your code here
 
+        # initialize a new matrix
+        new_matrix = zeroes(self.w, self.h)
+
+        # set the rows in the new matrix
+        # as the columns in the current matrix
+        for i in range(len(self.g[0])):
+            for j in range(len(self.g)):
+                new_matrix[i][j] = self.g[j][i]
+        return new_matrix
+
+
     def is_square(self):
         return self.h == self.w
 
@@ -158,9 +169,9 @@ class Matrix(object):
         """
 
         # TODO - your code here
-        new_matrix = zeroes(self.h, self.h)
+        new_matrix = zeroes(self.h, self.w)
         for i in range(len(self.g)):
-            for j in range(len(self.g)):
+            for j in range(len(self.g[i])):
                 new_matrix[i][j] = -self.g[i][j]
         return new_matrix
 
@@ -169,17 +180,15 @@ class Matrix(object):
         """
         Defines the behavior of - operator (as subtraction)
         """
-        #
         # TODO - your code here
-        #
+
 
     def __mul__(self, other):
         """
         Defines the behavior of * operator (matrix multiplication)
         """
-        #
         # TODO - your code here
-        #
+
 
     def __rmul__(self, other):
         """
