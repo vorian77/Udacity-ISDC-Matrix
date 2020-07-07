@@ -106,8 +106,8 @@ def test():
     assert equal(top_ones.T(), left_ones), "Error in your T function (transpose)"
     assert equal(left_ones.T(), top_ones), "Error in your T function (transpose)"
     # assert equal(top_ones - left_ones.T(), m.zeroes(2,2)), "Error in your __sub__ function"
-    # assert (4*m.identity(5))[0][0] == 4, "Error in your __rmul__ function"
-    # assert (4*m.identity(5)).trace() == 20 , "Error in your trace function"
+    assert (4*m.identity(5))[0][0] == 4, "Error in your __rmul__ function"
+    assert (4*m.identity(5)).trace() == 20 , "Error in your trace function"
 
     # assert type(-I2) == type(I2_neg), "Error: Your __neg__ function does not return a Matrix does not return a Matrix"
     # assert type(I2 + I2_neg) == type(zero), "Error: Your __add__ function does not return a Matrix"

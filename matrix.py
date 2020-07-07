@@ -80,6 +80,16 @@ class Matrix(object):
 
         # TODO - your code here
 
+        # traverse through all values
+        # sum values where the row = column
+        total = 0
+        for i in range(len(self.g)):
+            for j in range(len(self.g[i])):
+                if i == j:
+                    total += self.g[i][j]
+        return total
+
+
     def inverse(self):
         """
         Calculates the inverse of a 1x1 or 2x2 Matrix.
@@ -131,11 +141,6 @@ class Matrix(object):
             new_matrix[1][1] = a * factor
 
             return new_matrix
-
-
-
-
-
 
 
     def T(self):
@@ -269,7 +274,15 @@ class Matrix(object):
           0.0  2.0
         """
         if isinstance(other, numbers.Number):
-            pass
-            #
             # TODO - your code here
-            #
+
+            # init new matrix
+            new_matrix = zeroes(self.h, self.w)
+
+            # set each value in the new matrix
+            # as the corrosponding value in this matrix
+            # times other
+            for i in range(len(new_matrix.g)):
+                for j in range(len(new_matrix.g[i])):
+                    new_matrix[i][j] = other * self.g[i][j]
+            return new_matrix
