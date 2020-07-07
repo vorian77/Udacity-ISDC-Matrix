@@ -81,7 +81,7 @@ class Matrix(object):
         # TODO - your code here
 
         # traverse through all values
-        # sum values where the row = column
+        # sum values where the row equals the column
         total = 0
         for i in range(len(self.g)):
             for j in range(len(self.g[i])):
@@ -200,6 +200,8 @@ class Matrix(object):
             raise (ValueError, "Matrices can only be added if the dimensions are the same")
 
         # TODO - your code here
+
+        # create new
         new_matrix = zeroes(self.h, self.h)
         for i in range(len(self.g)):
             for j in range(len(self.g)):
@@ -221,7 +223,13 @@ class Matrix(object):
         """
 
         # TODO - your code here
+
+        # create new matrix same dimensions as this matrix
         new_matrix = zeroes(self.h, self.w)
+
+        # traverse each value in this matrix and
+        # set the corrosponding value in the new matrix as
+        # its negative value
         for i in range(len(self.g)):
             for j in range(len(self.g[i])):
                 new_matrix[i][j] = -self.g[i][j]
@@ -233,6 +241,12 @@ class Matrix(object):
         Defines the behavior of - operator (as subtraction)
         """
         # TODO - your code here
+
+        # check - matrices have same dimensions
+        if self.h != other.h or self.w != other.w:
+            raise (ValueError, "Matrices can only be added if the dimensions are the same")
+
+        # create new matrix with same dimensions as this matrix
         new_matrix = zeroes(self.h, self.w)
 
         # set each value in the new matrix
@@ -252,7 +266,7 @@ class Matrix(object):
 
         # return new matrix that is this matrix * other
 
-        # init new matrix
+        # initialize new matrix
         new_matrix = zeroes(self.h, other.w)
 
         # transpose other matrix to make calculations easier
@@ -284,7 +298,7 @@ class Matrix(object):
         if isinstance(other, numbers.Number):
             # TODO - your code here
 
-            # init new matrix
+            # initialize new matrix
             new_matrix = zeroes(self.h, self.w)
 
             # set each value in the new matrix

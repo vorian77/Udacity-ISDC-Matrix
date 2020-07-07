@@ -109,8 +109,8 @@ def test():
     assert (4*m.identity(5))[0][0] == 4, "Error in your __rmul__ function"
     assert (4*m.identity(5)).trace() == 20 , "Error in your trace function"
 
-    # assert type(-I2) == type(I2_neg), "Error: Your __neg__ function does not return a Matrix does not return a Matrix"
-    # assert type(I2 + I2_neg) == type(zero), "Error: Your __add__ function does not return a Matrix"
+    assert type(-I2) == type(I2_neg), "Error: Your __neg__ function does not return a Matrix does not return a Matrix"
+    assert type(I2 + I2_neg) == type(zero), "Error: Your __add__ function does not return a Matrix"
     assert type(m1 * m2) == type(m1_x_m2), "Error: Your __mul__ function does not return a Matrix"
     assert type(m2 * m1) == type(m2_x_m1), "Error: Your __mul__ function does not return a Matrix"
     assert type(m3.inverse()) == type(m3_inv), """Error: Your inverse function for the 1 x 1 case does not return a Matrix"""
