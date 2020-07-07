@@ -105,7 +105,7 @@ def test():
     assert equal(I2.inverse(), I2), """Error in your inverse function for the second 2 x 2 case"""
     assert equal(top_ones.T(), left_ones), "Error in your T function (transpose)"
     assert equal(left_ones.T(), top_ones), "Error in your T function (transpose)"
-    # assert equal(top_ones - left_ones.T(), m.zeroes(2,2)), "Error in your __sub__ function"
+    assert equal(top_ones - left_ones.T(), m.zeroes(2,2)), "Error in your __sub__ function"
     assert (4*m.identity(5))[0][0] == 4, "Error in your __rmul__ function"
     assert (4*m.identity(5)).trace() == 20 , "Error in your trace function"
 
@@ -117,7 +117,7 @@ def test():
     assert type(I2.inverse()) == type(I2), """Error: Your inverse function for the 2 x 2 case does not return a Matrix"""
     assert type(top_ones.T()) == type(left_ones), "Error: Your T function (transpose) does not return a Matrix"
     assert type(left_ones.T()) == type(top_ones), "Error: Your T function (transpose) does not return a Matrix"
-    # assert type(top_ones - left_ones.T()) == type(m.zeroes(2,2)), "Error: Your __sub__ function does not return a Matrix"
+    assert type(top_ones - left_ones.T()) == type(m.zeroes(2,2)), "Error: Your __sub__ function does not return a Matrix"
     print("Congratulations! All tests pass. Your Matrix class is working as expected.")
 
 def equal(m1, m2):

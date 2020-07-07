@@ -233,6 +233,15 @@ class Matrix(object):
         Defines the behavior of - operator (as subtraction)
         """
         # TODO - your code here
+        new_matrix = zeroes(self.h, self.w)
+
+        # set each value in the new matrix
+        # as the corrosponding value in this matrix
+        # less the corrosponding value in the other matrix
+        for i in range(len(new_matrix.g)):
+            for j in range(len(new_matrix.g[i])):
+                new_matrix[i][j] = self.g[i][j] - other.g[i][j]
+        return new_matrix
 
 
     def __mul__(self, other):
@@ -258,7 +267,6 @@ class Matrix(object):
                     dot_product += v1 * v2
                     new_matrix[i][j] = dot_product
         return new_matrix
-
 
 
     def __rmul__(self, other):
