@@ -91,6 +91,52 @@ class Matrix(object):
 
         # TODO - your code here
 
+        if self.h == 1:
+            # process 1 x 1 matrix
+            value = self.g[0][0]
+
+            # check for divide by 0
+            if value == 0:
+                raise ValueError('The matrix is not invertable.')
+
+            # create new matrix
+            new_matrix = zeroes(1, 1)
+
+            # set the inverted value
+            new_matrix[0][0] = 1 / value
+
+            return new_matrix
+
+        elif self.h == 2:
+            # process 2 x 2 matrix
+
+            # set the 4 values of the matrix
+            a = self.g[0][0]
+            b = self.g[0][1]
+            c = self.g[1][0]
+            d = self.g[1][1]
+
+            # check for determinant = 0
+            determinant = a * d - b * c
+            if determinant == 0:
+                raise ValueError('The matrix is not invertable.')
+
+            # create new matrix and set inverted values
+            new_matrix = zeroes(2, 2)
+            factor = 1 / determinant
+
+            new_matrix[0][0] = d * factor
+            new_matrix[0][1] = -b * factor
+            new_matrix[1][0] = -c * factor
+            new_matrix[1][1] = a * factor
+
+            return new_matrix
+
+
+
+
+
+
 
     def T(self):
         """
